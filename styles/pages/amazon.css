@@ -129,6 +129,16 @@
 .product-spacer {
   flex: 1;
 }
+.size-chart a {
+  text-decoration: none;
+  color: black;
+}
+.size-chart a:hover {
+  color: rgba(36, 36, 36, 0.626);
+}
+.size-chart a:active {
+  color: black;
+}
 
 .added-to-cart {
   color: rgb(6, 125, 98);

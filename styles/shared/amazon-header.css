@@ -35,7 +35,7 @@
 }
 
 .header-link:hover {
-  border: 1px solid white;
+  background-color: rgba(32, 42, 56, 0.75);
 }
 
 .amazon-logo {
@@ -143,7 +143,7 @@
   position: absolute;
   top: 4px;
   left: 22px;
-  
+
   width: 26px;
   text-align: center;
 }
