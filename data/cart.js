@@ -23,13 +23,6 @@ export function addToCart(productId) {
   }
   saveToStorage();
 }
-export function updateCartQuantity() {
-  let cartQuantity = 0;
-  cart.forEach((cartItem) => {
-    cartQuantity += cartItem.quantity;
-  });
-  document.querySelector(".cart-quantity").innerHTML = cartQuantity;
-}
 
 export function removeFromcart(productId) {
   const newCart = [];
