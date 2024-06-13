@@ -2,6 +2,8 @@ import { addToCart, updateCartQuantity } from "../data/cart.js";
 import { products } from "../data/products.js";
 let productsHTML = "";
 
+updateCartQuantity();
+
 products.forEach((product) => {
   productsHTML += ` 
         <div class="product-container">
@@ -26,9 +28,9 @@ products.forEach((product) => {
             }</div>
           </div>
 
-          <div class="product-price">$${(product.priceCents / 100).toFixed(
-            2
-          )}</div>
+          <div class="product-price">$${(
+            Math.round(product.priceCents) / 100
+          ).toFixed(2)}</div>
 
           <div class="product-quantity-container">
             <select>
