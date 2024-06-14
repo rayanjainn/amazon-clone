@@ -5,11 +5,20 @@ import { renderPaymentSummary } from "./checkout/paymentSummary.js";
 import { loadProducts, loadProductsFetch } from "../data/products.js";
 import { renderCheckout } from "./checkout/checkout.js";
 
-loadProductsFetch().then(() => {
+async function loadPage() {
+  await loadProductsFetch();
+
   renderOrderSummary();
   renderPaymentSummary();
   renderCheckout();
-});
+}
+loadPage();
+
+// loadProductsFetch().then(() = > {
+//   renderOrderSummary();
+//   renderPaymentSummary();
+//   renderCheckout();
+// });
 
 // loadProducts(() => {
 //   renderOrderSummary();
