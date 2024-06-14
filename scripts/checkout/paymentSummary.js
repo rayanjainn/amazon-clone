@@ -19,7 +19,7 @@ export function renderPaymentSummary() {
   const paymentSummaryHTML = `<div class="payment-summary-title">Order Summary</div>
 
           <div class="payment-summary-row">
-            <div>Items (3):</div>
+            <div class="items">Items (0):</div>
             <div class="payment-summary-money">$${(
               Math.round(productPriceCent) / 100
             ).toFixed(2)}</div>
@@ -58,4 +58,10 @@ export function renderPaymentSummary() {
           </button> `;
 
   document.querySelector(".payment-summary").innerHTML = paymentSummaryHTML;
+
+  let cartQuantity = 0;
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+  document.querySelector(".items").innerHTML = `Items (${cartQuantity}):`;
 }

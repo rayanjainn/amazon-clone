@@ -3,6 +3,7 @@ import { products, getProduct } from "../../data/products.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 import { deliveryOptions, getDelivery } from "../../data/deliveryOptions.js";
 import { renderPaymentSummary } from "./paymentSummary.js";
+import { renderCheckout } from "./checkout.js";
 
 export function renderOrderSummary() {
   let cartHTML = "";
@@ -32,10 +33,12 @@ export function renderOrderSummary() {
                 </div>
                 <div class="product-price">${matchingProduct.getPrice()}</div>
                 <div class="product-quantity">
-                  <span> Quantity: <span class="quantity-label">${
-                    cartItem.quantity
-                  }</span> </span>
-                  <span class="update-quantity-link link-primary">
+                  <span> Quantity: <span class="quantity-label-${
+                    matchingProduct.id
+                  }">${cartItem.quantity}</span> </span>
+                  <span class="update-quantity-link link-primary" data-product-id='${
+                    matchingProduct.id
+                  }'>
                     Update
                   </span>
                   <span class="delete-quantity-link link-primary" data-product-id='${
@@ -98,6 +101,7 @@ export function renderOrderSummary() {
       );
       container.remove();
       renderPaymentSummary();
+      renderCheckout();
     });
   });
 
