@@ -64,4 +64,25 @@ export function renderPaymentSummary() {
     cartQuantity += cartItem.quantity;
   });
   document.querySelector(".items").innerHTML = `Items (${cartQuantity}):`;
+
+  document
+    .querySelector(".place-order-button")
+    .addEventListener("click", async () => {
+      try {
+        const response = await fetch("https://supersimplebackend.dev/orders", {
+          method: "POST",
+          headers: {
+            "Content-Tpye": "application/json",
+          },
+          body: JSON.stringify({
+            cart: cart,
+          }),
+        });
+        const order = await response.json();
+      } catch (error) {
+        console.log("Erorr :", error);
+      }
+
+      window.location.href = "orders.html";
+    });
 }
